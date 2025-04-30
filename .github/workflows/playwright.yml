@@ -23,7 +23,7 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run Playwright tests
+      - name: Run Playwright login tests (positivos y negativos)
         run: npx playwright test
 
       - name: Simulate TestRail/Xray upload
