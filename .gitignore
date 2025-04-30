@@ -1,0 +1,29 @@
+# Node.js
+node_modules/
+dist/
+*.log
+npm-debug.log*
+
+# Playwright
+playwright-report/
+test-results/
+*.zip
+.vscode/
+
+# Coverage
+coverage/
+*.lcov
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment & Secrets
+.env
+.env.*.local
+
+# GitHub Actions
+*.tgz
+
+# Simulaciones
+simulated-upload.json
