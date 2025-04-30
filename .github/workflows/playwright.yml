@@ -9,26 +9,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
-    - name: Install dependencies
-      run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-    - name: Run Playwright tests
-      run: npx playwright test
+      - name: Run Playwright tests
+        run: npx playwright test
 
-    - name: Simulate TestRail/Xray upload
-      run: npx ts-node scripts/simulateResultUpload.ts
+      - name: Simulate TestRail/Xray upload
+        run: npx ts-node scripts/simulateResultUpload.ts
 
-    - name: Upload HTML and JSON reports
-      uses: actions/upload-artifact@v3
-      with:
-        name: reports
-        path: |
-          playwright-report/
-          simulated-upload.json
+      - name: Upload HTML and JSON reports
+        uses: actions/upload-artifact@main  # Cambiado de @v3 a @main
+        with:
+          name: reports
+          path: |
+            playwright-report/
+            simulated-upload.json
